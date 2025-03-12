@@ -3,7 +3,46 @@ title: My New Page
 permalink: /newpage/
 ---
 
-<h1>Welcome to My New Page</h1>
-<p>This is a new page created using HTML in Jekyll.</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Juegos</title>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/main.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/main.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            text-align: center;
+        }
+        #calendar {
+            max-width: 600px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <h2>Mis horarios disponibles para jugar</h2>
+    <div id="calendar"></div>
 
-<a href="/">Go Back Home</a>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'timeGridWeek',  // Vista semanal
+                slotMinTime: "18:00:00",      // Horario mínimo (6 PM)
+                slotMaxTime: "23:59:00",      // Horario máximo (12 AM)
+                firstDay: new Date().getDay(), // Semana actual
+                hiddenDays: [0, 1, 2, 3, 4], // Oculta todos los días excepto viernes y sábado
+                events: [
+                    { title: "Disponible", start: "2025-03-14T20:00:00", end: "2025-03-14T22:00:00" }, // Ejemplo: Viernes 20:00 a 22:00
+                    { title: "Disponible", start: "2025-03-15T18:30:00", end: "2025-03-15T21:00:00" }  // Sábado 18:30 a 21:00
+                ]
+            });
+            calendar.render();
+        });
+    </script>
+</body>
+</html>
