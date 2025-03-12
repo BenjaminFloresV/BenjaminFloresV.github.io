@@ -67,11 +67,11 @@ permalink: /schedule/
             <th>Horario</th>
         </tr>
         <tr>
-            <td class="date1"></td>
+            <td id="date1"></td>
             <td >22:00 - 22:00</td>
         </tr>
         <tr>
-            <td class="date2"></td>
+            <td id="date2"></td>
             <td>18:30 - 21:00</td>
         </tr>
     </table>
@@ -97,8 +97,12 @@ permalink: /schedule/
 
         // Asigna la fecha al input al cargar la página
         window.onload = function() {
-            document.getElementById("date1").value = getNextDayDate("viernes");
-            document.getElementById("date2").value = getNextDayDate("sábado");
+
+            setTimeout(() => {
+                console.log("Waited 2 seconds");
+                document.getElementById("date1").value = getNextDayDate("viernes");
+                document.getElementById("date2").value = getNextDayDate("sábado");
+            }, 3000);
         };
     </script>
 </body>
