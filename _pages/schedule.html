@@ -73,6 +73,8 @@ permalink: /schedule/
             <td>18:30 - 21:00</td>
         </tr>
     </table>
+    <br>
+    <p class="p">Muchas gracias por su comprensión estimado amig@ 🤝</p>
     <script>
         function getNextDayDate(dayName) {
             const daysOfWeek = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
@@ -90,21 +92,24 @@ permalink: /schedule/
             if (daysToAdd === 0) daysToAdd = 7; // Si hoy es el mismo día, se busca el siguiente
 
             today.setDate(today.getDate() + daysToAdd);
-            return today.toISOString().split('T')[0]; // Retorna la fecha en formato YYYY-MM-DD
+
+            // Formatear la fecha en formato día-mes-año
+            let day = today.getDate().toString().padStart(2, '0'); // Agrega un 0 si es menor a 10
+            let month = (today.getMonth() + 1).toString().padStart(2, '0'); // Meses van de 0 a 11, sumamos 1
+            let year = today.getFullYear();
+
+            return `${day}-${month}-${year}`;
         }
 
-        // Asigna la fecha al input al cargar la página
+        // Asigna la fecha al <td> al cargar la página
         window.onload = function() {
-
             setTimeout(() => {
-                console.log("Waited 2 seconds");
-                let date1 = getNextDayDate("viernes")
-                let date2 = getNextDayDate("sábado")
-                console.log(date1)
-                console.log(date2)
+                let date1 = getNextDayDate("viernes");
+                let date2 = getNextDayDate("sábado");
+
                 document.getElementById("date1").innerText = date1;
                 document.getElementById("date2").innerText = date2;
-            }, 3000);
+            }, 2000);
         };
     </script>
 </body>
