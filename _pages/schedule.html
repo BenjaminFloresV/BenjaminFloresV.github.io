@@ -46,6 +46,32 @@ permalink: /schedule/
 
 
     </style>
+    <script>
+        function getNextDayDate(dayName) {
+            const daysOfWeek = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+            dayName = dayName.toLowerCase(); // Convertimos a minúsculas para evitar errores
+
+            const today = new Date();
+            const todayIndex = today.getDay(); // Índice del día actual (0 = domingo, 1 = lunes, etc.)
+            const targetIndex = daysOfWeek.indexOf(dayName);
+
+            if (targetIndex === -1) {
+                throw new Error("Nombre de día inválido. Usa nombres en español como 'lunes', 'martes', etc.");
+            }
+
+            let daysToAdd = (targetIndex - todayIndex + 7) % 7;
+            if (daysToAdd === 0) daysToAdd = 7; // Si hoy es el mismo día, se busca el siguiente
+
+            today.setDate(today.getDate() + daysToAdd);
+            return today.toISOString().split('T')[0]; // Retorna la fecha en formato YYYY-MM-DD
+        }
+
+        // Asigna la fecha al input al cargar la página
+        window.onload = function() {
+            document.getElementById("date1").value = getNextDayDate("viernes");
+            document.getElementById("date2").value = getNextDayDate("sábado");
+        };
+    </script>
 </head>
 <body>
     <div>
@@ -67,11 +93,11 @@ permalink: /schedule/
             <th>Horario</th>
         </tr>
         <tr>
-            <td>Viernes</td>
-            <td>20:00 - 22:00</td>
+            <td class="date1"></td>
+            <td>22:00 - 22:00</td>
         </tr>
         <tr>
-            <td>Sábado</td>
+            <td class="date2"></td>
             <td>18:30 - 21:00</td>
         </tr>
     </table>
