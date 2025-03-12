@@ -100,6 +100,10 @@ permalink: /schedule/
 
             setTimeout(() => {
                 console.log("Waited 2 seconds");
+                let date1 = getNextDayDate("viernes")
+                let date2 = getNextDayDate("sábado")
+                console.log(date1)
+                console.log(date2)
                 document.getElementById("date1").value = getNextDayDate("viernes");
                 document.getElementById("date2").value = getNextDayDate("sábado");
             }, 3000);
