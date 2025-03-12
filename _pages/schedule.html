@@ -16,10 +16,39 @@ permalink: /schedule/
             margin: 40px;
         }
         table {
-            width:65%;
+            width: 50%;
             margin: auto;
             border-collapse: collapse;
         }
+
+        /* Para pantallas muy pequeñas (menos de 480px, móviles en vertical) */
+        @media screen and (max-width: 480px) {
+            table {
+                width: 90%;
+            }
+        }
+
+        /* Para pantallas pequeñas (entre 481px y 768px, móviles en horizontal y tablets pequeñas) */
+        @media screen and (min-width: 481px) and (max-width: 768px) {
+            table {
+                width: 80%;
+            }
+        }
+
+        /* Para tablets y pantallas medianas (entre 769px y 1024px, tablets grandes y laptops pequeñas) */
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            table {
+                width: 70%;
+            }
+        }
+
+        /* Para pantallas grandes (más de 1024px, laptops grandes y monitores) */
+        @media screen and (min-width: 1025px) {
+            table {
+                width: 50%;
+            }
+        }
+
         th, td {
             border: 1px solid black;
             padding: 10px;
