@@ -73,6 +73,14 @@ permalink: /schedule/
             font-weight: bold; /* Hace el texto en negrita */
         }
 
+        title {
+            font-weight: bold;
+        }
+
+        red {
+            color: red;
+        }
+
 
     </style>
 </head>
@@ -87,7 +95,8 @@ permalink: /schedule/
         <p class="p">Por ello, te pido que respetes mis horarios. Podemos coordinar ajustes si es necesario, pero es fundamental establecer horarios definidos, estimado amigo.</p>
     </div>
 
-    <h2>Mis horarios disponibles para jugar 🕹️</h2>
+    <h2 class='title red'>Esta semana no podré jugar<h2>
+    {% comment %} <h2>Mis horarios disponibles para jugar 🕹️</h2>
     <table>
         <tr>
             <th>Día</th>
@@ -102,7 +111,7 @@ permalink: /schedule/
             <td>13:30 - 15:00</td>
         </tr>
     </table>
-    <br>
+    <br> {% endcomment %}
     <p class="p">Muchas gracias por su comprensión estimado|a amigo|a 🤝</p>
     <script>
         function getNextDayDate(dayName) {
