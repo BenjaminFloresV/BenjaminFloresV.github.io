@@ -92,23 +92,23 @@ permalink: /schedule/
         <p class="p">Por ello, te pido que respetes mis horarios. Podemos coordinar ajustes si es necesario, pero es fundamental establecer horarios definidos, estimado amigo.</p>
     </div>
 
-    <h2 class='title'>Esta semana no podré jugar<h2>
-    {% comment %} <h2>Mis horarios disponibles para jugar 🕹️</h2>
+    {% comment %} <h2 class='title'>Esta semana no podré jugar<h2> {% endcomment %}
+    <h2>Mis horarios disponibles para jugar 🕹️</h2>
     <table>
         <tr>
             <th>Día</th>
             <th>Horario</th>
         </tr>
-        <tr>
+        {% comment %} <tr>
             <td id="date1"></td>
             <td >22:00 - 00:00</td>
-        </tr>
+        </tr> {% endcomment %}
         <tr>
             <td id="date2"></td>
-            <td>13:30 - 15:00</td>
+            <td>15:00 - 18:00</td>
         </tr>
     </table>
-    <br> {% endcomment %}
+    <br>
     <p class="p">Muchas gracias por su comprensión estimado|a amigo|a 🤝</p>
     <script>
         function getNextDayDate(dayName) {
@@ -139,10 +139,10 @@ permalink: /schedule/
         // Asigna la fecha al <td> al cargar la página
         window.onload = function() {
             setTimeout(() => {
-                let date1 = getNextDayDate("viernes");
-                let date2 = getNextDayDate("sábado");
+                let date1 = getNextDayDate("domingo");
+                // let date2 = getNextDayDate("sábado");
 
-                document.getElementById("date1").innerText = date1;
+                // document.getElementById("date1").innerText = date1;
                 document.getElementById("date2").innerText = date2;
             }, 1000);
         };
